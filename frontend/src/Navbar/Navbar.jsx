@@ -5,7 +5,7 @@ import {Button, useToast} from "@chakra-ui/react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode";
-import { logoutFunc } from '../Redux/user/user.action';
+import { ClearFunc, logoutFunc } from '../Redux/user/user.action';
 
 const Navbar = () => {
   const { loginData } = useSelector( (store) => store.User );
@@ -33,6 +33,10 @@ const Navbar = () => {
       isClosable: true,
       position:"top"
     })
+    setTimeout(()=>{
+    dispatch(ClearFunc())
+    },2)
+    setUserData({})
   }
 
   return (
@@ -40,7 +44,8 @@ const Navbar = () => {
         <Link to="/"><img width="70px" src="http://khanglobalstudies.com/images/logos/kgs-logo.png" alt="KSG" /></Link>
         <div className={style.options}>
         <Link to="/"><Button>Course</Button></Link>
-        <Link to="/admin"><Button>Admin</Button></Link>
+        {useData.role == "admin" ?
+        <Link to="/admin"><Button>Admin</Button></Link> : "" }
 
         {/* ---------- (Conditional rendering) ------------*/}
         {loginData ? <>

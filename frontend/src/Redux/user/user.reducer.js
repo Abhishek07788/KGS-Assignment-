@@ -55,7 +55,14 @@ export const userReducer = (state = initialState, { type, payload }) => {
     }
     case logout: {
       localStorage.clear("loginData");
-      return { ...state, loading: false, error: false, loginData: "" };
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        loginData: "",
+        signupData: "",
+        loginDataFail: "",
+      };
     }
 
     default:

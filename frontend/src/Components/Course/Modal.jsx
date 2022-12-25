@@ -22,14 +22,16 @@ const ModalForEdit = ({ isOpen, setIsOpen, editData, handleShowData }) => {
     if (value) {
       dispatch(updateCourseAction(editData.id, { [editData.name]: value }));
       toast({
-        title: `New ${editData.name} updated (Please refresh if not).👍`,
+        title: `New ${editData.name} updated.👍`,
         status: "success",
         duration: 2500,
         isClosable: true,
         position: "top",
       });
       setIsOpen(false);
+      setTimeout(()=>{
       handleShowData()
+      },2)
     } else {
       toast({
         title: "Please Enter Something!!",

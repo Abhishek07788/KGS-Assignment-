@@ -10,7 +10,6 @@ import {
   deleteCourseAction,
   getCourseAction,
 } from "../../Redux/course/course.action";
-import ModalForEdit from "./Modal";
 
 const Home = () => {
   const { loginData } = useSelector((store) => store.User);
@@ -39,7 +38,9 @@ const Home = () => {
   // -------------- ( delete course ) -----------
   const handleDeleteCourse = (id) => {
     dispatch(deleteCourseAction(id));
+    setTimeout(()=>{
     handleShowData();
+    },1)
     // ------------ Alert----------
     toast({
       title: "Course Deleted👍",
@@ -101,7 +102,9 @@ const Home = () => {
                 </Box>
               </div>
             </div>
-            {useData.role === "admin" ? (
+
+            {loginData ? 
+            (useData.role === "admin" ? (
               <Button
                 onClick={() => handleDeleteCourse(el._id)}
                 bg="#dc3544"
@@ -111,7 +114,7 @@ const Home = () => {
               </Button>
             ) : (
               ""
-            )}
+            )) : ""}
           </div>
         ))}
     </div>

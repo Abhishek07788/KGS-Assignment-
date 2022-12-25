@@ -28,8 +28,9 @@ const Admin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addCourseAction(form));
+    setTimeout(()=>{
     dispatch(getCourseAction());
-
+    },1)
        // ------------ Alert----------
        toast({
         title: "Course Added👍",
@@ -45,7 +46,7 @@ const Admin = () => {
   return (
     <div>
     <Heading mt="100" color="teal">Admin Panel</Heading>
-    <Box w="50%" m="auto" mt="4" textAlign="left" p="10" borderRadius="20" boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px" bg="#ffede3">
+    <Box w="50%" m="auto" mt="4" textAlign="left" p="10" borderRadius="20" boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px" bg="#ffede3" border={"2px"}>
       {/* --------------- (Form) ---------------- */}
       <form onSubmit={handleSubmit}>
         <Text mt="3" fontWeight={500}>Thumbnail*</Text>
@@ -72,7 +73,7 @@ const Admin = () => {
         <Text mt="3" fontWeight={500}>VideoLink (optional)</Text>
         <Input bg="#ffff" name='videolink' value={form.videolink} onChange={handleChange} placeholder='VideoLink..' borderBottom="1px" />
        
-        <Button type="submit" w="100%" bg="teal" mt="10">Add Course</Button>
+        <Button type="submit" w="100%" bg="teal" color="#ffff" mt="10">Add Course</Button>
       </form>
     </Box>
     </div>
