@@ -11,11 +11,9 @@ const AllRoutes = () => {
   return (
     <Routes>
         <Route path="/" element={
-        <AuthRoute>
         <Home />
-        </AuthRoute>
         }/>
-        <Route path="/details" element={
+        <Route path="/details/:id" element={
         <AuthRoute>
         <CourseDetails />
         </AuthRoute>

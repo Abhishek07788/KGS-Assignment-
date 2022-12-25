@@ -13,10 +13,11 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const toast = useToast();
 
+
   // -------------- (Token Decode) ---------------
   useEffect( () => {
     if(loginData){
-      setUserData(jwt_decode(loginData.token))
+      setUserData(jwt_decode(loginData.token));
     }
   }, [loginData])
 

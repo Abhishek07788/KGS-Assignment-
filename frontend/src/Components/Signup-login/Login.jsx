@@ -13,7 +13,7 @@ const initialState = {
 
 const Login = () => {
     const [form, setForm] = useState(initialState);
-    const { loginData, loading, error } = useSelector( (store) => store.User );
+    const { loginData, loading, error, loginDataFail } = useSelector( (store) => store.User );
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const toast = useToast();
@@ -21,7 +21,7 @@ const Login = () => {
     // ----------------- (Navigate) --------------
     useEffect(()=>{
         if(loginData){
-
+         navigate("/")
          // ------------ Alert---------- 
          toast({
             title: loginData.message,
@@ -30,16 +30,19 @@ const Login = () => {
             isClosable: true,
             position:"top"
           })
-
-        if(loginData.status === true){
-            navigate("/")
-        }else{
+        }else if(loginDataFail){
+            // ------------ Alert---------- 
+            toast({
+                title: loginDataFail.message,
+                status: 'error',
+                duration: 2000,
+                isClosable: true,
+                position:"top"
+            })
             dispatch(ClearFunc())   
         }
-    }
-    }, [loginData])
-    
-    
+    }, [loginData, loginDataFail])
+        
     // ---------- ( onChange function ) ---------
     const handleChange = (e) => {
         const {name, value} = e.target;

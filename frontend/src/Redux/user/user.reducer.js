@@ -10,6 +10,7 @@ import {
 const initialState = {
   signupData: "",
   loginData: JSON.parse(localStorage.getItem("loginData")) || "",
+  loginDataFail: "",
   loading: false,
   error: false,
 };
@@ -31,8 +32,15 @@ export const userReducer = (state = initialState, { type, payload }) => {
     case login_success: {
       if (payload.status === true) {
         localStorage.setItem("loginData", JSON.stringify(payload));
+        return { ...state, loading: false, error: false, loginData: payload };
+      } else {
+        return {
+          ...state,
+          loading: false,
+          error: false,
+          loginDataFail: payload,
+        };
       }
-      return { ...state, loading: false, error: false, loginData: payload };
     }
 
     case clear: {
@@ -42,6 +50,7 @@ export const userReducer = (state = initialState, { type, payload }) => {
         error: false,
         signupData: "",
         loginData: "",
+        loginDataFail: "",
       };
     }
     case logout: {

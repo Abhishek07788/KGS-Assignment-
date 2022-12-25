@@ -24,7 +24,7 @@ app.get("/", async (req, res) => {
 
 // ---------- (Get Course by id) -------------
 app.get("/:id", async (req, res) => {
-  const { id } = req.headers;
+  const { id } = req.params;
   try {
     const course = await Course.findOne({ _id: id });
     res.send(course);
@@ -35,7 +35,7 @@ app.get("/:id", async (req, res) => {
 
 // ---------- (delete Course) -------------
 app.delete("/:id", async (req, res) => {
-  const { id } = req.headers;
+  const { id } = req.params;
   try {
     const course = await Course.deleteOne({ _id: id });
     res.send("Course Deleted");
@@ -57,6 +57,7 @@ app.patch("/update/:id", async (req, res) => {
     validity,
     videolink,
   } = req.body;
+  
   try {
     // -------------- (Thumbnail) ---------
     if (thumbnail) {
@@ -71,7 +72,7 @@ app.patch("/update/:id", async (req, res) => {
     if (title) {
       const course = await Course.updateOne(
         { _id: id },
-        { $set: { thumbnail: thumbnail } }
+        { $set: { title: title } }
       );
       return res.send("newTitle updated");
     }
