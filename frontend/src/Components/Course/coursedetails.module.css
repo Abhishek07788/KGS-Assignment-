@@ -1,0 +1,67 @@
+.DetailsMainDiv {
+  margin-top: 90px;
+}
+
+.DetailsMainDiv > h2 {
+  color: #021f35;
+  font-weight: bold;
+}
+
+.DetailsMainDiv > h3 {
+  color: #021f35;
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.DetailsMainDiv > h3::before {
+  content: "⭐";
+  font-size: 20px;
+}
+
+.CourseDetailsBox {
+  width: 90%;
+  display: flex;
+  text-align: left;
+  gap: 50px;
+  margin: auto;
+  padding: 40px;
+}
+
+.CourseDetailsBox > div:first-child {
+  width: 100%;
+}
+
+.CoursePreviewBox {
+  position: relative;
+  margin-top: -10%;
+  width: 44%;
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background: #ffff;
+}
+
+.BoxBottom{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.BoxBottom>p{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ---------------- Min screen to max screen --------- */
+@media all and (min-width: 0px) and (max-width: 700px) {
+  .CourseDetailsBox {
+    flex-direction: column;
+  }
+  .CoursePreviewBox {
+    width: 100%;
+    margin-top: 20px;
+  }
+}

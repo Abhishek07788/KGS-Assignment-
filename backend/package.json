@@ -1,0 +1,27 @@
+{
+  "name": "kgs-assignment-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abhishek07788/KGS-Assignment-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abhishek07788/KGS-Assignment-/issues"
+  },
+  "homepage": "https://github.com/Abhishek07788/KGS-Assignment-#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.1",
+    "nodemon": "^2.0.20"
+  }
+}

@@ -1,0 +1,58 @@
+.mainDiv {
+  margin: auto;
+  margin-top: 7rem;
+  width: 70%;
+}
+
+.mainDiv > p {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+/* ------------------- */
+.courseBox {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+  text-align: left;
+  gap: 30px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.courseBox > div {
+  width: 100%;
+}
+
+.img {
+  width: 650px;
+  border-radius: 10px;
+}
+
+.time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  padding: 10px;
+}
+
+/* ---------------- Min screen to max screen --------- */
+@media all and (min-width: 0px) and (max-width: 700px) {
+  .mainDiv > p {
+    width: 90%;
+  }
+
+  /* ------------------- */
+  .courseBox {
+    display: grid;
+    width: 70%;
+  }
+  .courseBox > img {
+    width: 100%;
+  }
+}
