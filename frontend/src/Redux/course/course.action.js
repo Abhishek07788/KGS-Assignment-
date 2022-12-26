@@ -14,7 +14,7 @@ import axios from "axios";
 export const addCourseAction = (form) => async (dispatch) => {
   dispatch({ type: loading });
   try {
-    const res = await axios.post("http://localhost:8080/course", form);
+    const res = await axios.post("https://kgs-backend.onrender.com/course", form);
     dispatch({ type: course_add });
   } catch (e) {
     dispatch({ type: failed });
@@ -25,7 +25,7 @@ export const addCourseAction = (form) => async (dispatch) => {
 export const getCourseAction = () => async (dispatch) => {
   dispatch({ type: dataLoading });
   try {
-    const res = await axios.get("http://localhost:8080/course");
+    const res = await axios.get("https://kgs-backend.onrender.com/course");
     dispatch({ type: course_get, payload: res.data });
   } catch (e) {
     dispatch({ type: failed });
@@ -36,7 +36,7 @@ export const getCourseAction = () => async (dispatch) => {
 export const getCourseByIdAction = (id) => async (dispatch) => {
   dispatch({ type: loading });
   try {
-    const res = await axios.get(`http://localhost:8080/course/${id}`);
+    const res = await axios.get(`https://kgs-backend.onrender.com/course/${id}`);
     dispatch({ type: course_getById, payload: res.data });
   } catch (e) {
     dispatch({ type: failed });
@@ -47,7 +47,7 @@ export const getCourseByIdAction = (id) => async (dispatch) => {
 export const deleteCourseAction = (id) => async (dispatch) => {
   dispatch({ type: loading });
   try {
-    const res = await axios.delete(`http://localhost:8080/course/${id}`);
+    const res = await axios.delete(`https://kgs-backend.onrender.com/course/${id}`);
     dispatch({ type: course_delete });
   } catch (e) {
     dispatch({ type: failed });
@@ -60,7 +60,7 @@ export const updateCourseAction = (id, cred) => async (dispatch) => {
   dispatch({ type: loading });
   try {
     const res = await axios.patch(
-      `http://localhost:8080/course/update/${id}`,
+      `https://kgs-backend.onrender.com/course/update/${id}`,
       cred
     );
     dispatch({ type: course_update });
