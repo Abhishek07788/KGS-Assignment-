@@ -68,7 +68,8 @@ const Home = () => {
           {/* -------------- ( data loading ) --------------- */}
           {dataLoading ? <Heading color="teal">Loading...</Heading> : ""}
           {/* -------------- ( empty data alert ) --------------- */}
-          {courseData.length == 0 ? <Heading color="#dc3545">No course Available...</Heading> : ""}
+          {setTimeout(()=>{courseData.length == 0 ? <Heading color="#dc3545">No course Available...</Heading> : ""},800)}
+          
 
       {/* --------- Course Box ------ */}
       {courseData &&
