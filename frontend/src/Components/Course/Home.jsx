@@ -40,7 +40,7 @@ const Home = () => {
     dispatch(deleteCourseAction(id));
     setTimeout(()=>{
     handleShowData();
-    },1)
+    },500)
     // ------------ Alert----------
     toast({
       title: "Course Deleted👍",

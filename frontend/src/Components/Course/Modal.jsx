@@ -31,7 +31,7 @@ const ModalForEdit = ({ isOpen, setIsOpen, editData, handleShowData }) => {
       setIsOpen(false);
       setTimeout(()=>{
       handleShowData()
-      },2)
+      },500)
     } else {
       toast({
         title: "Please Enter Something!!",

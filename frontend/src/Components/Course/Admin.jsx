@@ -30,7 +30,7 @@ const Admin = () => {
     dispatch(addCourseAction(form));
     setTimeout(()=>{
     dispatch(getCourseAction());
-    },1)
+    },500)
        // ------------ Alert----------
        toast({
         title: "Course Added👍",
