@@ -45,7 +45,11 @@ const Navbar = () => {
   };
 
   return (
-    <div className={style.maindiv}>
+    <Box
+      className={style.maindiv}
+      pl={["2", "2", "10", "10"]}
+      pr={["2", "2", "10", "10"]}
+    >
       <Link to="/">
         <Image
           width={["30px", "30px", "70px", "70px"]}
@@ -88,7 +92,7 @@ const Navbar = () => {
         )}
       </SimpleGrid>
 
-      <Box gap={3} display={["flex", "flex", "none", "none"]} m="auto">
+      <Box gap={3} display={["flex", "flex", "none", "none"]}>
         <Link to="/">
           <Text fontWeight={700}>
             <u>Course</u>
@@ -107,6 +111,9 @@ const Navbar = () => {
         {/* ---------- (Conditional rendering) ------------*/}
         {loginData ? (
           <>
+            <Text fontWeight={700}>
+              Hi: <span style={{ color: "red" }}>{useData.name}</span>
+            </Text>
             <Text
               fontWeight={700}
               onClick={handleLogout}
@@ -118,9 +125,6 @@ const Navbar = () => {
               pr="1"
             >
               Log out
-            </Text>
-            <Text fontWeight={700}>
-              Hi: <span style={{ color: "red" }}>{useData.name}</span>
             </Text>
           </>
         ) : (
@@ -136,7 +140,7 @@ const Navbar = () => {
           </>
         )}
       </Box>
-    </div>
+    </Box>
   );
 };
 
