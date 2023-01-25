@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import style from "./navbar.module.css";
-import {Button, useToast} from "@chakra-ui/react";
+import {Button, SimpleGrid, useToast} from "@chakra-ui/react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode";
@@ -41,8 +41,8 @@ const Navbar = () => {
 
   return (
       <div className={style.maindiv} >
-        <Link to="/"><img width="70px" src="http://khanglobalstudies.com/images/logos/kgs-logo.png" alt="KSG" /></Link>
-        <div className={style.options}>
+        <Link to="/"><img width="70px" display={["none","none","block","block"]} src="http://khanglobalstudies.com/images/logos/kgs-logo.png" alt="KSG" /></Link>
+        <SimpleGrid className={style.options} columns={[2,2,4,4]} gap={[2,2,5,5]}>
         <Link to="/"><Button>Course</Button></Link>
         {useData.role == "admin" ?
         <Link to="/admin"><Button>Admin</Button></Link> : "" }
@@ -58,7 +58,7 @@ const Navbar = () => {
         <Link to="/signup"><Button>Sign up</Button></Link>
         </> 
         }
-        </div>
+        </SimpleGrid>
       </div>
   )
 }
