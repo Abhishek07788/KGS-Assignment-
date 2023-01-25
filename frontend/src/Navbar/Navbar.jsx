@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./navbar.module.css";
-import { Box, Button, SimpleGrid, Text, useToast } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Image,
+  SimpleGrid,
+  Text,
+  useToast,
+} from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
@@ -40,18 +47,17 @@ const Navbar = () => {
   return (
     <div className={style.maindiv}>
       <Link to="/">
-        <img
-          width="70px"
-          display={["none", "none", "block", "block"]}
+        <Image
+          width={["30px", "30px", "70px", "70px"]}
           src="http://khanglobalstudies.com/images/logos/kgs-logo.png"
           alt="KSG"
         />
       </Link>
       <SimpleGrid
         className={style.options}
-        columns={[2, 2, 4, 4]}
-        gap={[2, 2, 5, 5]}
-        display={["none", "none", "block", "block"]}
+        columns={4}
+        gap={10}
+        display={["none", "none", "flex", "flex"]}
       >
         <Link to="/">
           <Button>Course</Button>
@@ -82,7 +88,7 @@ const Navbar = () => {
         )}
       </SimpleGrid>
 
-      <Box gap={2} display={["flex", "flex", "none", "none"]}>
+      <Box gap={3} display={["flex", "flex", "none", "none"]} m="auto">
         <Link to="/">
           <Text fontWeight={700}>
             <u>Course</u>
